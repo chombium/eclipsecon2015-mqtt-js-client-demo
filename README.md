@@ -21,4 +21,4 @@ $ npm install
 
 ## Revision History
 
-0.0.1 - Inital release - Project Structure and basic communication wit the MQTT Broker
+0.0.1 - Inital release - Project Structure and basic communication with the MQTT Broker

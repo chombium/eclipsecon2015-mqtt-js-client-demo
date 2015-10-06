@@ -23,6 +23,7 @@ gulp.task('scripts', function() {
 	   paths.assets + '/scripts/snap.js',
 	   paths.assets + '/scripts/mqttws31.js',
 	   paths.assets + '/scripts/elsubscada_*.js',
+	   paths.assets + '/scripts/app-config.js',
 	   paths.assets + '/scripts/scada-app.js',
 	])
 	.pipe(concat('app.js'))

@@ -95,8 +95,23 @@ $(document).ready(function(){
       
         // Connection succeeded; subscribe to our topics
         topics = subscribe_topics.split(';');
-        for (var topic in topics){
-            client.subscribe(topic, {qos: 0});
+        
+        console.log(topics);
+        for(var i = 0; i < topics.length; i++){
+            console.log(topics[i]);
+            client.subscribe(topics[i], {
+                qos: 0,
+                onSuccess: function(){
+                    if (debug) {
+                        console.log('sub-success');
+                    }
+                },
+                onFailure: function(){
+                    if (debug) {
+                        console.log('sub-FAILED');
+                    }
+                },
+                });
         }
     }
     
@@ -110,12 +125,26 @@ $(document).ready(function(){
       };
       
       function onMessageArrived(message) {
-
           var topic = message.destinationName;
           var payload = message.payloadString;
           
           if (debug) {
-              console.log("message received="+ message);
+              console.log('message arrived -  topic: "' + topic + '"  payload: "' + payload +'"');
+          }
+          
+          switch (topic) {
+          case "SCADA/LEAD1/CB/COMMAND":
+              if (payload === '1') {
+                  bbd.setState(1);
+              } else {
+                  bbd.setState(0);
+              }
+          break;
+          case "SCADA/LEAD1/VOLTAGE_MEASUREMENT":
+              bbd.setLabelText('CB     ' + payload + 'V')
+          break;
+          default:
+              console.log("No action for: " + topic)
           }
       };
 

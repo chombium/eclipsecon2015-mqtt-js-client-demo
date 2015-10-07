@@ -17,6 +17,6 @@ cleansession = true;
 
 clientid = 'mqtt-js-demo-client';
 
-debug = false;
+debug = true;
 
 reconnectTimeout = 2000

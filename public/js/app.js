@@ -19850,7 +19850,7 @@ $(document).ready(function(){
 	    
         message = new Paho.MQTT.Message(state);
         message.destinationName = publish_topic;
-        client.send(message); 
+        client.send(message);
 	}
 	
 	var bbd = new ElSubScada_CircuitBreaker({
@@ -19900,7 +19900,8 @@ $(document).ready(function(){
             cleanSession: cleansession,
             onSuccess: onConnect,
             onFailure: function (message) {
-                $('#mqtt-connection-status').val("Connection failed: " + message.errorMessage + " Retrying");
+                $('#mqtt-connection-status').html('Can not connect to ' + host + ':' + port);
+                $('#mqtt-connection-error').html('Error message ' + message.errorMessage + ' Retrying...');
                 setTimeout(mqttConnect, reconnectTimeout);
             }
         };
@@ -19917,15 +19918,17 @@ $(document).ready(function(){
         try {
             client.connect(options);
         } catch (e) {
-            $('#mqtt-connection-status').val('Can not connect to ' + host + ':' + port);
-            $('#mqtt-connection-error').val('Error message ' + e.errorMessage);
+            $('#mqtt-connection-status').html('Can not connect to ' + host + ':' + port);
+            $('#mqtt-connection-error').html('Error message ' + e.errorMessage);
             
             // TODO: handle exception
         }
     }
     
     function onConnect() {
-        $('#status').val('Connected to ' + host + ':' + port);
+        console.log('onConnect');
+        $('#mqtt-connection-status').html('Connected to ' + host + ':' + port);
+        $('#mqtt-connection-error').html('No Error');
       
         // Connection succeeded; subscribe to our topics
         topics = subscribe_topics.split(';');

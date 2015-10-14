@@ -5,10 +5,10 @@ host = '127.0.0.1';
 port = 9001;
 
 // topics to subscribe to
-subscribe_topics = 'SCADA/LEAD1/CB/STATUS;SCADA/LEAD1/CB/COMMAND;SCADA/LEAD1/VOLTAGE_MEASUREMENT'; 
+subscribe_topics = 'RTU/KURA/ElSubScada/LEAD1/VOLTAGE'; 
 
 // topic to publish to
-publish_topic = 'SCADA/LEAD1/CB/COMMAND';
+publish_topic = 'WEB/KURA/ElSubScada/LEAD1/CB1/CMD';
 
 useTLS = false;
 username = null;

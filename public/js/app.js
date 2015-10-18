@@ -23543,9 +23543,9 @@ $(document).ready(function(){
 	        'value'    : state 
 	    }
 	    
-//	    jsonBody = JSON.stringify(messageBody);
-	    
-	    console.log(JSON.stringify(messageBody));
+	    if (debug === true){
+	        console.log(JSON.stringify(messageBody));
+	    }
 	    
         message = new Paho.MQTT.Message(JSON.stringify(messageBody));
         message.destinationName = publish_topic;

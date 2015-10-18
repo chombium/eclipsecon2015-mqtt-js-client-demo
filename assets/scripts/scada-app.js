@@ -11,7 +11,17 @@ $(document).ready(function(){
 	        state = '0';
 	    }
 	    
-        message = new Paho.MQTT.Message(state);
+	    messageBody = {
+	        'timestamp': moment().format(date_format),
+	        'unit'     : 'CMD',
+	        'value'    : state 
+	    }
+	    
+//	    jsonBody = JSON.stringify(messageBody);
+	    
+	    console.log(JSON.stringify(messageBody));
+	    
+        message = new Paho.MQTT.Message(JSON.stringify(messageBody));
         message.destinationName = publish_topic;
         client.send(message);
 	}
@@ -140,8 +150,10 @@ $(document).ready(function(){
                   bbd.setState(0);
               }
           break;
-          case "SCADA/LEAD1/VOLTAGE_MEASUREMENT":
-              bbd.setLabelText('CB     ' + payload + 'V')
+          case 'RTU/KURA/ElSubScada/LEAD1/VOLTAGE':
+              
+              
+              bbd.setLabelText('CB     ' + payload);
           break;
           default:
               console.log("No action for: " + topic)

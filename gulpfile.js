@@ -20,6 +20,8 @@ gulp.task('styles', function(){
 gulp.task('scripts', function() {
 	gulp.src([
 	   paths.bower + '/jquery/dist/jquery.js',
+	   paths.bower + '/json/json2.js',
+	   paths.bower + '/moment/moment.js',
 	   paths.assets + '/scripts/snap.js',
 	   paths.assets + '/scripts/mqttws31.js',
 	   paths.assets + '/scripts/elsubscada_*.js',

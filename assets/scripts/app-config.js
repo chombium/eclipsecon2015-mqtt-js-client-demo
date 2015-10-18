@@ -4,6 +4,8 @@ host = '127.0.0.1';
 // mqtt broker port
 port = 9001;
 
+date_format = 'YYYYMMDDHHmmss';
+
 // topics to subscribe to
 subscribe_topics = 'RTU/KURA/ElSubScada/LEAD1/VOLTAGE'; 
 

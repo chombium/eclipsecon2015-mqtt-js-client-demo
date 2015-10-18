@@ -8,7 +8,7 @@ port = 9001;
 subscribe_topics = 'RTU/KURA/ElSubScada/LEAD1/VOLTAGE'; 
 
 // topic to publish to
-publish_topic = 'WEB/KURA/ElSubScada/LEAD1/CB1/CMD';
+publish_topic = 'RTU/KURA/ElSubScada/LEAD1/CB1/CMD';
 
 useTLS = false;
 username = null;

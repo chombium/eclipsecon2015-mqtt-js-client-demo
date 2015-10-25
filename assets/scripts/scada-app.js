@@ -5,10 +5,10 @@ $(document).ready(function(){
 	var clk = function clickHanlder(){
 	    if (bbd.getState() === 0){
 	        bbd.setState(1);
-	        state = '1';
+	        state = 'on';
 	    } else {
 	        bbd.setState(0);
-	        state = '0';
+	        state = 'off';
 	    }
 	    
 	    messageBody = {

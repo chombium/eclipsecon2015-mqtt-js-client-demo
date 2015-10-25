@@ -7,10 +7,10 @@ port = 9001;
 date_format = 'YYYYMMDDHHmmss';
 
 // topics to subscribe to
-subscribe_topics = 'RTU/KURA/ElSubScada/LEAD1/VOLTAGE'; 
+subscribe_topics = 'RTU/KURA/EldemoPublisher/LEAD1/CB1/STATUS'; 
 
 // topic to publish to
-publish_topic = 'RTU/KURA/ElSubScada/LEAD1/CB1/CMD';
+publish_topic = 'RTU/KURA/ELDEMOPUBLISHER/LEAD1/CB1/CMD';
 
 useTLS = false;
 username = null;

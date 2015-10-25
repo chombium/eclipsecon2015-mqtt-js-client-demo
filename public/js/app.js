@@ -23509,10 +23509,10 @@ port = 9001;
 date_format = 'YYYYMMDDHHmmss';
 
 // topics to subscribe to
-subscribe_topics = 'RTU/KURA/ElSubScada/LEAD1/VOLTAGE'; 
+subscribe_topics = 'RTU/KURA/EldemoPublisher/LEAD1/CB1/STATUS'; 
 
 // topic to publish to
-publish_topic = 'RTU/KURA/ElSubScada/LEAD1/CB1/CMD';
+publish_topic = 'RTU/KURA/ELDEMOPUBLISHER/LEAD1/CB1/CMD';
 
 useTLS = false;
 username = null;
@@ -23531,10 +23531,10 @@ $(document).ready(function(){
 	var clk = function clickHanlder(){
 	    if (bbd.getState() === 0){
 	        bbd.setState(1);
-	        state = '1';
+	        state = 'on';
 	    } else {
 	        bbd.setState(0);
-	        state = '0';
+	        state = 'off';
 	    }
 	    
 	    messageBody = {

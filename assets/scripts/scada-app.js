@@ -11,11 +11,14 @@ $(document).ready(function(){
 	        state = 'off';
 	    }
 	    
+	    timestamp = moment().format(date_format);
 	    messageBody = {
-	        'timestamp': moment().format(date_format),
+	        'timestamp': timestamp,
 	        'unit'     : 'CMD',
 	        'value'    : state 
 	    }
+	    
+	    setLastUpdateTime(timestamp);
 	    
 	    if (debug === true){
 	        console.log(JSON.stringify(messageBody));
@@ -162,6 +165,20 @@ $(document).ready(function(){
 
       
       mqttConnect();
+      
+      String.prototype.splice = function( idx, rem, s ) {
+    	    return (this.slice(0,idx) + s + this.slice(idx + Math.abs(rem)));
+    	};
+      
+      function setLastUpdateTime(timestamp) {
+    	  var result = timestamp.splice( 4, 0, "-" );
+    	  var result = result.splice( 7, 0, "-" );
+    	  var result = result.splice( 10, 0, " " );
+    	  var result = result.splice( 13, 0, ":" );
+    	  var result = result.splice( 16, 0, ":" );
+    	  
+    	  $('#last-update').html('Last update: ' + result);
+      }
 	
 });
 

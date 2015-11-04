@@ -22,3 +22,7 @@ $ npm install
 ## Revision History
 
 0.0.1 - Inital release - Project Structure and basic communication with the MQTT Broker
+
+
+## License
+This project is licensed under the Apache 2 License. Check the LICENSE file for details.
